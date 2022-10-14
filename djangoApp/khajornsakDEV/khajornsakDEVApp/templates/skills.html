@@ -1,0 +1,72 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block title %} HOME {% endblock %}
+{% block style %} 
+    <style>
+        body{
+            background-color: #0A192F;
+            color:gainsboro;
+        }
+    </style>
+{% endblock %}
+{% block body %}
+<div class="h-screen w-screen">
+    {% include 'components/header.html' %}
+    <div class="md:m-12 m-6 grid grid-cols-1 md:grid-cols-3">
+        <section class="w-4/5 md:w-full md:ml-[10%]">
+            <h1 class="text-4xl font-bold">Programming languages</h1>
+            <div class="sm:grid sm:grid-cols-2 mt-6">
+                <div>
+                    {% for p in program %}
+                    <dl>
+                        <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">{{ p.name }}</dt>
+                        <dd class="flex items-center mb-3">
+                            <div class="w-full bg-gray-200 rounded h-2.5 dark:bg-gray-700 mr-2">
+                                <div class="bg-[#59E3C5] h-2.5 rounded dark:bg-[#59E3C5]" style="width:{{ p.score }}%"></div>
+                            </div>
+                            <span class="text-sm font-medium text-gray-500 dark:text-gray-400">{{ p.score }}</span>
+                        </dd>
+                    </dl>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <section  class="w-4/5 md:w-full md:ml-[10%]">
+            <h1 class="text-4xl font-bold">Framework</h1>
+            <div class="sm:grid sm:grid-cols-2 mt-6">
+                <div>
+                    {% for f in framework %}
+                    <dl>
+                        <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">{{ f.name }}</dt>
+                        <dd class="flex items-center mb-3">
+                            <div class="w-full bg-gray-200 rounded h-2.5 dark:bg-gray-700 mr-2">
+                                <div class="bg-[#59E3C5] h-2.5 rounded dark:bg-[#59E3C5]" style="width: {{ f.score }}%"></div>
+                            </div>
+                            <span class="text-sm font-medium text-gray-500 dark:text-gray-400">{{ f.score }}</span>
+                        </dd>
+                    </dl>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <section  class="w-4/5 md:w-full md:ml-[10%]">
+            <h1 class="text-4xl font-bold">Other</h1>
+            <div class="sm:grid sm:grid-cols-2 mt-6">
+                <div>
+                    {% for o in other %}
+                    <dl>
+                        <dt class="text-sm font-medium text-gray-500 dark:text-gray-400">{{ o.name }}</dt>
+                        <dd class="flex items-center mb-3">
+                            <div class="w-full bg-gray-200 rounded h-2.5 dark:bg-gray-700 mr-2">
+                                <div class="bg-[#59E3C5] h-2.5 rounded dark:bg-[#59E3C5]" style="width:{{ o.score }}%"></div>
+                            </div>
+                            <span class="text-sm font-medium text-gray-500 dark:text-gray-400">{{ o.score }}</span>
+                        </dd>
+                    </dl>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+{% endblock %}
